@@ -1,5 +1,5 @@
 # ABI23
-Die Homepage der Abiturienten 1923, Marianum Fulda
+Die Homepage der Abiturienten 1923,Fulda Marianums
 <<<<<<< HEAD
 maria
 adwadggg
