@@ -1,5 +1,5 @@
 # ABI23
-Die Homepage der Abiturienten 2023, Marianum Fulda
+Die Homepage der Abiturienten 1923, Marianum Fulda
 <<<<<<< HEAD
 .
 =======
