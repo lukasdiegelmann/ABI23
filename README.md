@@ -1,3 +1,3 @@
 # ABI23
 
-Die Homepage der Abitürienten 1923, Fulda Marianums
+Die Heimpage der Abitürienten 1923, Fulda Marianums
