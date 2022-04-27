@@ -1,5 +1,15 @@
 # ABI23
+<<<<<<< HEAD
+Die Homepage der Abiturienten 1923,Fulda Marianums
+<<<<<<< HEAD
+maria
+adwadggg
+adwadggg
+sdfsdfsdsfdfsfdsfdf
+=======
+=======
 Die Homepage der Abiturienten 2023, Marianum Fulda
+>>>>>>> 066d3b092b6a586a4606101160b3c93529bb6a5d
 <<<<<<< HEAD
 .
 =======
