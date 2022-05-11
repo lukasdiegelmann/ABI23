@@ -1,1 +1,1 @@
-$db = new PDO('mysql:host=...;dbname=;charset=utf8', 'abi23', 'passwort');
+$db = new PDO('mysql:host=...;dbname=;charset=utf8', 'abi23', 'hallihalo');
