@@ -15,6 +15,9 @@
         $createTickerEntry->execute();
     }
     function readTicker($from, $to) {
+        $getLastInsertID = $db->prepare("SELECT LAST_INSERT_ID();");
+        $getLastInsertID->execute();
+        $LastInsertID =  $getLastInsertID->fetchAll();
 
     }
 ?>
