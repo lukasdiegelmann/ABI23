@@ -20,9 +20,11 @@
         <div class="col">
           <div align="center" class="card">
             <div class="card-body">
-              <h5 class="card-title">Name</h5>
-              <p class="card-text">Email</p>
-              <p class="card-text">Telefon</p>
+              <h5 class="card-title">Samuel Hauser (12c)</h5>
+              <p class="card-text">Tel. 015754869328</p>
+              <p class="card-text">E-Mail: samuelhauser2003@gmail.com</p>
+              <p class="card-text">Talk</p>
+
 
             </div>
           </div>
