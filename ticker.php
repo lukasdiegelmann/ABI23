@@ -1,4 +1,5 @@
 <?php
+    include "dbconnect.php";
     function createTickerEntry($committee, $creator, $creationdate, $eventdate, $eventplace, $expiredate, $title, $content) {
         $createTickerEntry = $db->prepare("INSERT INTO ticker (committee, creator, creationdate, eventdate, eventplace, expiredate, title, content) VALUES (:committee, :creator, :creationdate, :eventdate, :eventplace, :expiredate, :title, :content)");
         
