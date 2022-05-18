@@ -1,5 +1,5 @@
  <?php 
-    function sessionstart($username,$klasse){  //Starten einer Session mit Benutzername und Klasse als Parameter
+    function sessionstart($username, $klasse, $nickname){  //Starten einer Session mit Benutzername und Klasse als Parameter
     session_start([
         'cookie_lifetime' => 2592000, //Coockie setzen für 1 Monat=2592000s
     ]);
@@ -10,7 +10,7 @@
     echo "Login erfolgreich";
     }
     
-    function authenticate_ad($username, $userpass){
+    function authenticate_ad($username, $userpass, $nickname){
 
     $adServer = "ldap://10.16.1.1"; //LDAP-Server der Schule
     $ldap = ldap_connect($adServer); //Verbindungsvariable
@@ -28,12 +28,12 @@
     $ldaprdnheilc = 'CN=heilc,OU=Teachers,OU=default-school,OU=SCHOOLS,DC=srv,DC=marianum-fulda,DC=de';
     
     //$bind = @ldap_bind($ldap, $ldaprdn, $userpass); //Definition des bind, findet jetzt pro Klasse im if statt        
-    if         (@ldap_bind($ldap, $ldaprdn12a, $userpass)) { sessionstart($username,"12a");  //Ausführen des Bind, Rückgabewert: Boolean //für alle OU=12a probieren
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12b, $userpass)) { sessionstart($username,"12b");  //12b
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12c, $userpass)) { sessionstart($username,"12c");  //12b
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12d, $userpass)) { sessionstart($username,"12d");  //12b
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12e, $userpass)) { sessionstart($username,"12e");  //12b
-    }  elseif  ($username=="heilc" && @ldap_bind($ldap, $ldaprdnheilc, $userpass) ) { sessionstart($username,"Teacher");  //Herr Heil
+    if         (@ldap_bind($ldap, $ldaprdn12a, $userpass)) { sessionstart($username,"12a", $nickname);  //Ausführen des Bind, Rückgabewert: Boolean //für alle OU=12a probieren
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12b, $userpass)) { sessionstart($username,"12b", $nickname);  //12b
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12c, $userpass)) { sessionstart($username,"12c", $nickname);  //12b
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12d, $userpass)) { sessionstart($username,"12d", $nickname);  //12b
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12e, $userpass)) { sessionstart($username,"12e", $nickname);  //12b
+    }  elseif  ($username=="heilc" && @ldap_bind($ldap, $ldaprdnheilc, $userpass) ) { sessionstart($username,"Teacher", $nickname);  //Herr Heil
     }  else {echo "Login fehlgeschlagen";}        
     }
 ?>
@@ -55,31 +55,31 @@
 </head>
 <body>
   
-    <form class="loginbox">
+    <form class="loginbox" method="$_POST">
       <!-- Username input -->
       <div class="form-outline mb-4">
-        <input type="text" id="form2Example1" class="form-control" />
+        <input type="text" id="form2Example1" class="form-control" name="username"/>
         <label class="form-label" for="form2Example1">Marianum-Benutzername</label>
       </div>
 
 
         <!-- Nik  input -->
         <div class="form-outline mb-4">
-          <input type="text" id="form2Example1" class="form-control" />
+          <input type="text" id="form2Example1" class="form-control" name="nickname" />
           <label class="form-label" for="form2Example1">Nickname</label>
         </div>
       
 
       <!-- Password input -->
       <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" />
+        <input type="password" id="form2Example2" class="form-control" name="password"/>
         <label class="form-label" for="form2Example2">Password</label>
       </div>
 
       <!-- 2 column grid layout for inline styling -->
 
       <!-- Submit button -->
-      <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+      <button type="submit" class="btn btn-primary btn-block mb-4" onclick="<?php authenticate_ad($_POST['username'], $_POST['password'], $_POST['nickname']); ?>">Sign in</button>
     </form>
 </body>
 </html>

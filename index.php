@@ -1,3 +1,4 @@
+test
 <?php
     include "login.php";
     include "ticker.php";
@@ -5,7 +6,9 @@
 
 <html>
     <?php
+        echo "1";
         createTickerentry("1","2","3","4","5","6","7");
+        echo "2";
     ?>
     <head>
         <!-- Downloading Bootstrap from CDN -->
