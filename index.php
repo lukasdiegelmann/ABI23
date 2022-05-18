@@ -7,7 +7,7 @@ test
 <html>
     <?php
         echo "1";
-        createTickerentry("1","2","3","4","5","6","7");
+        createTickerentry("1","2",NULL,"4", NULL,"6","7");
         echo "2";
     ?>
     <head>
