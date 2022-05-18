@@ -54,32 +54,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-    <form class="loginbox" method="$_POST">
-      <!-- Username input -->
-      <div class="form-outline mb-4">
-        <input type="text" id="form2Example1" class="form-control" name="username"/>
-        <label class="form-label" for="form2Example1">Marianum-Benutzername</label>
-      </div>
-
-
-        <!-- Nik  input -->
+  <?php
+    if($_SESSION['logedin']) {
+      ?>
+        //abmeldebutton
+      <?php
+    }else {
+      ?>
+        <form class="loginbox" method="$_POST">
+        <!-- Username input -->
         <div class="form-outline mb-4">
-          <input type="text" id="form2Example1" class="form-control" name="nickname" />
-          <label class="form-label" for="form2Example1">Nickname</label>
+          <input type="text" id="form2Example1" class="form-control" name="username"/>
+          <label class="form-label" for="form2Example1">Marianum-Benutzername</label>
         </div>
-      
 
-      <!-- Password input -->
-      <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" name="password"/>
-        <label class="form-label" for="form2Example2">Password</label>
-      </div>
 
-      <!-- 2 column grid layout for inline styling -->
+          <!-- Nik  input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form2Example1" class="form-control" name="nickname" />
+            <label class="form-label" for="form2Example1">Nickname</label>
+          </div>
+        
 
-      <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-4" onclick="<?php authenticate_ad($_POST['username'], $_POST['password'], $_POST['nickname']); ?>">Sign in</button>
-    </form>
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type="password" id="form2Example2" class="form-control" name="password"/>
+          <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" onclick="<?php authenticate_ad($_POST['username'], $_POST['password'], $_POST['nickname']); ?>">Sign in</button>
+      </form>
+    <?php
+    }
+    ?>
 </body>
 </html>
