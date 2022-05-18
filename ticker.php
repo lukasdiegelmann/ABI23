@@ -1,12 +1,11 @@
 <?php
-    function createTickerEntry($committee, $creator, $creationdate, $eventdate, $eventplace, $expiredate, $title, $content) {
+    function createTickerEntry($committee, $creator, $eventdate, $eventplace, $expiredate, $title, $content) {
         include "dbconnect.php";
         try {
-            $createTickerEntry = $db->prepare("INSERT INTO ticker (committee, creator, creationdate, eventdate, eventplace, expiredate, title, content) VALUES (:committee, :creator, :creationdate, :eventdate, :eventplace, :expiredate, :title, :content)");
+            $createTickerEntry = $db->prepare("INSERT INTO ticker (committee, creator, eventdate, eventplace, expiredate, title, content) VALUES (:committee, :creator, :eventdate, :eventplace, :expiredate, :title, :content)");
             
             $createTickerEntry->bindParam(":committee", $committee);
             $createTickerEntry->bindParam(":creator", $creator);
-            $createTickerEntry->bindParam(":creationdate", $creationdate);
             $createTickerEntry->bindParam(":eventdate", $eventdate);
             $createTickerEntry->bindParam(":eventplace", $eventplace);
             $createTickerEntry->bindParam(":expiredate", $expiredate);
@@ -22,7 +21,7 @@
         include "dbconnect.php";
 
         $last_id = $db->lastInsertId();
-        
+
         if($from == 0) $from = 1;   //input 0 is denied
         $startid = $last_id - $from - 1;
         $endid = $last_id - $to - 1;
