@@ -2,7 +2,7 @@
     function createTickerEntry($committee, $creator, $eventdate, $eventplace, $expiredate, $title, $content) {
         include "dbconnect.php";
         try {
-            $createTickerEntry = $db->prepare("INSERT INTO ticker (committee, creator, eventdate, eventplace, expiredate, title, content) VALUES (:committee, :creator, :eventdate, :eventplace, :expiredate, :title, :content)");
+            $createTickerEntry = $db->prepare("INSERT INTO ticker (committee, creator, eventdate, eventplace, expiredate, title, content) VALUES (:committee, :creator, :eventdate, :eventplace, :expiredate, :title, :content);");
             
             $createTickerEntry->bindParam(":committee", $committee);
             $createTickerEntry->bindParam(":creator", $creator);
@@ -26,7 +26,7 @@
         $startid = $last_id - $from - 1;
         $endid = $last_id - $to - 1;
 
-        $getTickerEntries = $db->prepare("SELECT * FROM ticker WHERE ID BETWEEN :startid AND :endid");
+        $getTickerEntries = $db->prepare("SELECT * FROM ticker WHERE ID BETWEEN :startid AND :endid;");
         $getTickerEntries->bindParam(":startid", $startid);
         $getTickerEntries->bindParam(":endid", $endid);
         $getTickerEntries->execute();
