@@ -1,5 +1,6 @@
 # ABI23
 <<<<<<< HEAD
+<<<<<<< HEAD
 Die Homepage der Abiturienten 1923,Fulda Marianums
 <<<<<<< HEAD
 maria
@@ -35,3 +36,8 @@ sdfsdfsdsfdfsfdsfdf
 
 Cherry Berry die Granate
 >>>>>>> caff66a9c28ff150581ceedd161b63722f3b190f
+=======
+
+
+
+>>>>>>> ec18aefed8a105a93d5d99cbf30c98e84b1ff6c5
