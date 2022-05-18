@@ -15,10 +15,15 @@
         <div class="skeleton">
             <?php
                 include "navbar.php"
-            ?>
-            <?php
-                include "footer.php"
-            ?>
+            ?>    
+            <div class="skeleton__content">
+                <!-- This is where to put the main content of the website -->
+            </div>
+            <div class="skeleton__footer">
+                <?php
+                    include "footer.php"
+                ?>
+            </div>
         </div>
     </body>
 </html>
