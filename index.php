@@ -1,4 +1,4 @@
-test
+
 <?php
     include "login.php";
     include "ticker.php";
