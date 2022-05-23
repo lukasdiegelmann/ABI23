@@ -9,6 +9,18 @@ test
         echo "1";
         createTickerentry("1","2",NULL,"4", NULL,"6","7");
         echo "2";
+        $result = readTicker(1, 2);
+        foreach($result as $row) {
+            echo $row['id'];
+            echo $row['committee'];
+            echo $row['creator'];
+            echo $row['creationdate'];
+            echo $row['eventdate'];
+            echo $row['eventplace'];
+            echo $row['expiredate'];
+            echo $row['title'];
+            echo $row['content'];
+        }
     ?>
     <head>
         <!-- Downloading Bootstrap from CDN -->
