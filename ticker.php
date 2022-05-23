@@ -20,11 +20,15 @@
     function readTicker($from, $to) {   //z.B 1. bis 5. Eintrag, ausgehend vom neusten Element
         include "dbconnect.php";
         echo "readticker called";
-        $last_id = $db->lastInsertId();
-        echo $last_id;
+        $getLastInsertID = $db->prepare("SELECT id FROM ticker order by id desc LIMIT 1");
+        $getLastInsertID->execute();
+
+        $last_id = $getLastInsertID->fetch();
+        echo $last_id['id'];
         if($from == 0) $from = 1;   //input 0 is denied
         $startid = $last_id - $from - 1;
         $endid = $last_id - $to - 1;
+        
 
         $getTickerEntries = $db->prepare("SELECT * FROM ticker WHERE ID BETWEEN :startid AND :endid;");
         $getTickerEntries->bindParam(":startid", $startid);
