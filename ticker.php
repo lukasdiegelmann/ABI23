@@ -22,8 +22,9 @@
         echo "readticker called";
         $getLastInsertID = $db->prepare("SELECT id FROM ticker order by id desc LIMIT 1");
         $getLastInsertID->execute();
+
         $last_id = $getLastInsertID->fetch();
-        echo $last_id;
+        echo $last_id['id'];
         if($from == 0) $from = 1;   //input 0 is denied
         $startid = $last_id - $from - 1;
         $endid = $last_id - $to - 1;
