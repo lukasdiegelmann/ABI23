@@ -6,9 +6,8 @@ test
 
 <html>
     <?php
-        echo "1";
-        createTickerentry("1","2",NULL,"4", NULL,"6","7");
-        echo "2";
+        
+        //createTickerentry("1","2",NULL,"4", NULL,"6","7");
         $result = readTicker(1, 2);
         foreach($result as $row) {
             echo $row['id'];
