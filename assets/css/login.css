@@ -1,0 +1,38 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
+
+/* When the browser is at least 600px and above */
+@media screen and (min-width: 600px) {
+    .login__wrapper {
+        width: 50%;
+    }
+}
+
+.login__wrapper__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+}
+
+.login__wrapper__image img {
+    height: 100%;
+}
+
+.login__wrapper__form__submit {
+    margin-top: 5px;
+}
