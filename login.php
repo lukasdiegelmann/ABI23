@@ -1,16 +1,15 @@
  <?php 
-    function sessionstart($username, $klasse, $nickname){  //Starten einer Session mit Benutzername und Klasse als Parameter
+    function sessionstart($username, $klasse){  //Starten einer Session mit Benutzername und Klasse als Parameter
     session_start([
         'cookie_lifetime' => 2592000, //Coockie setzen für 1 Monat=2592000s
     ]);
     $_SESSION['logedin']=1; //Session-Variable, eingeloggt: 1
     $_SESSION['username']="$username";                
     $_SESSION['klasse']="$klasse";   
-    $_SESSION['name'] = "$nickname";
     echo "Login erfolgreich";
     }
     
-    function authenticate_ad($username, $userpass, $nickname){
+    function authenticate_ad($username, $userpass){
 
     $adServer = "ldap://10.16.1.1"; //LDAP-Server der Schule
     $ldap = ldap_connect($adServer); //Verbindungsvariable
@@ -28,12 +27,12 @@
     $ldaprdnheilc = 'CN=heilc,OU=Teachers,OU=default-school,OU=SCHOOLS,DC=srv,DC=marianum-fulda,DC=de';
     
     //$bind = @ldap_bind($ldap, $ldaprdn, $userpass); //Definition des bind, findet jetzt pro Klasse im if statt        
-    if         (@ldap_bind($ldap, $ldaprdn12a, $userpass)) { sessionstart($username,"12a", $nickname);  //Ausführen des Bind, Rückgabewert: Boolean //für alle OU=12a probieren
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12b, $userpass)) { sessionstart($username,"12b", $nickname);  //12b
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12c, $userpass)) { sessionstart($username,"12c", $nickname);  //12b
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12d, $userpass)) { sessionstart($username,"12d", $nickname);  //12b
-    }  elseif  (@ldap_bind($ldap, $ldaprdn12e, $userpass)) { sessionstart($username,"12e", $nickname);  //12b
-    }  elseif  ($username=="heilc" && @ldap_bind($ldap, $ldaprdnheilc, $userpass) ) { sessionstart($username,"Teacher", $nickname);  //Herr Heil
+    if         (@ldap_bind($ldap, $ldaprdn12a, $userpass)) { sessionstart($username,"12a");  //Ausführen des Bind, Rückgabewert: Boolean //für alle OU=12a probieren
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12b, $userpass)) { sessionstart($username,"12b");  //12b
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12c, $userpass)) { sessionstart($username,"12c");  //12b
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12d, $userpass)) { sessionstart($username,"12d");  //12b
+    }  elseif  (@ldap_bind($ldap, $ldaprdn12e, $userpass)) { sessionstart($username,"12e");  //12b
+    }  elseif  ($username=="heilc" && @ldap_bind($ldap, $ldaprdnheilc, $userpass) ) { sessionstart($username,"Teacher");  //Herr Heil
     }  else {echo "Login fehlgeschlagen";}        
     }
 ?>
@@ -50,8 +49,9 @@
   <script src="https://kit.fontawesome.com/1c799d369e.js" crossorigin="anonymous"></script>
   <!-- Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <!-- Eigene CSS-->
-  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>  <!-- Eigene CSS-->
+  <!-- Eigene CSS -->
+  <link href="assets/css/login.css" rel="stylesheet" />
 </head>
 <body>
   <?php
@@ -79,13 +79,6 @@
         </div>
 
 
-          <!-- Nik  input -->
-          <div class="form-outline mb-4">
-            <input type="text" id="form2Example1" class="form-control" name="nickname" />
-            <label class="form-label" for="form2Example1">Nickname</label>
-          </div>
-        
-
         <!-- Password input -->
         <div class="form-outline mb-4">
           <input type="password" id="form2Example2" class="form-control" name="password"/>
@@ -95,8 +88,36 @@
         <!-- 2 column grid layout for inline styling -->
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" onclick="<?php authenticate_ad($_POST['username'], $_POST['password'], $_POST['nickname']); ?>">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4" onclick="<?php authenticate_ad($_POST['username'], $_POST['password']); ?>">Sign in</button>
       </form>
+        <div class="login">
+            <div class="login__wrapper">
+                <div class="login__wrapper__image">
+                    <img src="assets/imgs/blue-m.jpg" alt="...">
+                </div>
+                <form class="needs-validation" method="$_POST" novalidate>
+                    <!-- Username Input -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="username" required>
+                        <label for="floatingInput">Benutzername</label>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required >
+                        <label for="floatingPassword">Passwort</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <div class="form-text">Bitte verwende die Daten für deinen Marianum-Cloud-Zugang</div>
+                    </div>
+                    
+                    <div class="login__wrapper__form__submit">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     <?php
     }
     ?>
