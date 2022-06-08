@@ -31,6 +31,8 @@
         <div class="skeleton">
             <?php
                 include "navbar.php";
+                echo $_SESSION['logedin'];
+                echo $_SESSION['username'];
             ?>    
             <div class="skeleton__content">
                 <!-- This is where to put the main content of the website -->
