@@ -31,6 +31,7 @@
         <div class="skeleton">
             <?php
                 include "navbar.php";
+                echo "cookie";
                 echo $_SESSION['logedin'];
                 echo $_SESSION['username'];
             ?>    
