@@ -10,7 +10,7 @@
     }
     
     function authenticate_ad($username, $userpass){
-
+    echo "login ausgeführt(debug";
     $adServer = "ldap://10.16.1.1"; //LDAP-Server der Schule
     $ldap = ldap_connect($adServer); //Verbindungsvariable
 
