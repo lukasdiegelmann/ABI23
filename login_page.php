@@ -1,3 +1,6 @@
+<?php
+  include "login.php";
+?>
 <html>
 <head>
   <meta charset="UTF-8">
