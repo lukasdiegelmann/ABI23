@@ -20,25 +20,10 @@
 </head>
 <body>
   <?php
-    if($_SESSION['logedin']) {
-      ?>
-      <!--
-        //abmeldebutton
-        /*
-        call on logout button press
-        <?php
-        if ($_SESSION['logedin']==1) { session_destroy();
-          header('location:'.$_SERVER['PHP_SELF']);     
-        }
-        ?>
-        */
-        -->
-      <?php
-    }else {
-      if(array_key_exists('loginbutton', $_POST)) {
-            authenticate_ad($_POST['username'], $_POST['password']);
-        }
-      ?>
+    if(array_key_exists('loginbutton', $_POST)) {
+          authenticate_ad($_POST['username'], $_POST['password']);
+      }
+   ?>
       </form>
         <div class="login">
             <div class="login__wrapper">
