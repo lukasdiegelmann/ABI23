@@ -7,7 +7,7 @@
     $_SESSION['username']="$username";                
     $_SESSION['klasse']="$klasse";   
     echo "Login erfolgreich";
-    header("/abi23/", true, 301);
+    header('Location: /abi23/');
     }
     
     function authenticate_ad($username, $userpass){
