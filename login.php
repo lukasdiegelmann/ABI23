@@ -1,7 +1,7 @@
  <?php 
     function sessionstart($username, $klasse){  //Starten einer Session mit Benutzername und Klasse als Parameter
     session_start([
-        'cookie_lifetime' => 2592000, //Coockie setzen für 1 Monat=2592000s
+        'cookie_lifetime' => 86400, //Coockie setzen für 1 Tag
     ]);
     $_SESSION['logedin']=1; //Session-Variable, eingeloggt: 1
     $_SESSION['username']="$username";                
