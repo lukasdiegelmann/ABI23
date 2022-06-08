@@ -25,6 +25,7 @@
                 if ($_SESSION['logedin']==1) { session_destroy();
                 header('location:'.$_SERVER['PHP_SELF']); 
             }
+            }
               
            ?>
             
