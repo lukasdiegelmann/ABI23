@@ -11,7 +11,7 @@
         </ul>
     
         <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">Login</button>
+            <button onclick="location.href = '/abi23/login_page.php';"type="button" class="btn btn-outline-primary me-2">Login</button>
         </div>
     </header>
 </div>
