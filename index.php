@@ -30,14 +30,14 @@
     <body>
         <div class="skeleton">
             <?php
-                include "navbar.php";
+                readfile("navbar.html");
             ?>    
             <div class="skeleton__content">
                 <!-- This is where to put the main content of the website -->
             </div>
             <div class="skeleton__footer">
                 <?php
-                    include "footer.php";
+                    readfile("footer.html");
                 ?>
             </div>
         </div>
