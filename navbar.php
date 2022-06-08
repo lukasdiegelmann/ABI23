@@ -12,7 +12,7 @@
     
         <div class="col-md-3 text-end">
             <?php 
-                if($_SESSION['logedin']) {
+                if($_SESSION['logedin']==1) {
             ?>
                     <button type="button" class="btn btn-outline-primary me-2">Logout</button>
             <?php
@@ -27,7 +27,7 @@
             
             
             
-            <button onclick="location.href = '/abi23/login_page.php';"type="button" class="btn btn-outline-primary me-2">Login</button>
+           
         </div>
     </header>
 </div>
