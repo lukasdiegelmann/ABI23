@@ -71,24 +71,6 @@
       <?php
     }else {
       ?>
-        <form class="loginbox" method="$_POST">
-        <!-- Username input -->
-        <div class="form-outline mb-4">
-          <input type="text" id="form2Example1" class="form-control" name="username"/>
-          <label class="form-label" for="form2Example1">Marianum-Benutzername</label>
-        </div>
-
-
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-          <input type="password" id="form2Example2" class="form-control" name="password"/>
-          <label class="form-label" for="form2Example2">Password</label>
-        </div>
-
-        <!-- 2 column grid layout for inline styling -->
-
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" onclick="<?php authenticate_ad($_POST['username'], $_POST['password']); ?>">Sign in</button>
       </form>
         <div class="login">
             <div class="login__wrapper">
