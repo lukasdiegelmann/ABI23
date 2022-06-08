@@ -14,15 +14,18 @@
             <?php 
                 if($_SESSION['logedin']==1) {
             ?>
-                    <button type="button" class="btn btn-outline-primary me-2">Logout</button>
+                    <button name="logoutbutton" type="button" class="btn btn-outline-primary me-2">Logout</button>
             <?php
                 }else{
             ?>
                 <button onclick="location.href = '/abi23/login_page.php';"type="button" class="btn btn-outline-primary me-2">Login</button>
             <?php
                 }
-            //if ($_SESSION['logedin']==1) { session_destroy();
-          //header('location:'.$_SERVER['PHP_SELF']);   
+            if(array_key_exists('logoutbutton', $_POST)) {
+                if ($_SESSION['logedin']==1) { session_destroy();
+                header('location:'.$_SERVER['PHP_SELF']); 
+            }
+              
            ?>
             
             
