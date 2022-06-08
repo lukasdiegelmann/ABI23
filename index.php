@@ -5,7 +5,6 @@
 
 <html>
     <?php
-        
         //createTickerentry("1","2",NULL,"4", NULL,"6","7");
         $result = readTicker(1, 2);
         foreach($result as $row) {
