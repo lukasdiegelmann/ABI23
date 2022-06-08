@@ -4,8 +4,8 @@
         'cookie_lifetime' => 86400, //Coockie setzen für 1 Tag
     ]);
     $_SESSION['logedin']=1; //Session-Variable, eingeloggt: 1
-    $_SESSION['username']="$username";                
-    $_SESSION['klasse']="$klasse";   
+    $_SESSION['username']=$username;                
+    $_SESSION['klasse']=$klasse;   
     echo "Login erfolgreich";
     header('Location: /abi23/');
     }
