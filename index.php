@@ -1,6 +1,6 @@
 <?php
-    include "login.php";
-    include "ticker.php";
+    // include "login.php";
+    // include "ticker.php";
 ?>
 
 <html>
