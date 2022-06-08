@@ -18,7 +18,7 @@
             
                 }else{
             
-                echo "<button onclick='location.href = '/abi23/login_page.php';'type='button' class='btn btn-outline-primary me-2'>Login</button>";
+                echo "<button onclick='location.href = \"/abi23/login_page.php\";'type='button' class='btn btn-outline-primary me-2'>Login</button>";
             
                 }
             if(array_key_exists('logoutbutton', $_POST)) {
