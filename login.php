@@ -10,7 +10,6 @@
     }
     
     function authenticate_ad($username, $userpass){
-    echo "login ausgeführt(debug";
     $adServer = "ldap://10.16.1.1"; //LDAP-Server der Schule
     $ldap = ldap_connect($adServer); //Verbindungsvariable
 
@@ -70,6 +69,14 @@
         -->
       <?php
     }else {
+     if(array_key_exists('button1', $_POST)) {
+            authenticate_ad($_POST['username'], $_POST['password']);
+        }
+     
+     
+     
+     
+     
       ?>
       </form>
         <div class="login">
@@ -95,7 +102,7 @@
                     </div>
                     
                     <div class="login__wrapper__form__submit">
-                        <button type="submit" class="btn btn-primary" onclick="<?php authenticate_ad($_POST['username'], $_POST['password']);?>">Login</button>
+                        <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </form>
             </div>
