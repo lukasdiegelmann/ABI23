@@ -77,7 +77,7 @@
                 <div class="login__wrapper__image">
                     <img src="assets/imgs/blue-m.jpg" alt="...">
                 </div>
-                <form class="needs-validation" method="$_POST" novalidate>
+                <form class="needs-validation" method="post" novalidate>
                     <!-- Username Input -->
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="floatingInput" name="username" required>
@@ -95,7 +95,7 @@
                     </div>
                     
                     <div class="login__wrapper__form__submit">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary" onclick="<?php authenticate_ad($_POST['username'], $_POST['password']);?>">Login</button>
                     </div>
                 </form>
             </div>
