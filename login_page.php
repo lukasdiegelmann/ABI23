@@ -35,10 +35,7 @@
         -->
       <?php
     }else {
-     if(array_key_exists('loginbutton', $_POST)) {
-            authenticate_ad($_POST['username'], $_POST['password']);
-        }
-     ?>
+      ?>
       </form>
         <div class="login">
             <div class="login__wrapper">
@@ -70,6 +67,9 @@
         </div>
     <?php
     }
+  if(array_key_exists('loginbutton', $_POST)) {
+            authenticate_ad($_POST['username'], $_POST['password']);
+        }
     ?>
 </body>
 </html>
