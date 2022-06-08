@@ -69,15 +69,10 @@
         -->
       <?php
     }else {
-     if(array_key_exists('button1', $_POST)) {
+     if(array_key_exists('loginbutton', $_POST)) {
             authenticate_ad($_POST['username'], $_POST['password']);
         }
-     
-     
-     
-     
-     
-      ?>
+     ?>
       </form>
         <div class="login">
             <div class="login__wrapper">
@@ -102,7 +97,7 @@
                     </div>
                     
                     <div class="login__wrapper__form__submit">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button name="loginbutton" type="submit" class="btn btn-primary">Login</button>
                     </div>
                 </form>
             </div>
