@@ -21,11 +21,10 @@
                 echo "<button onclick='location.href = \"/abi23/login_page.php\";'type='button' class='btn btn-outline-primary me-2'>Login</button>";
             
                 }
-            if(array_key_exists('logoutbutton', $_POST)) {
-                if ($_SESSION['logedin']==1) { session_destroy();
-                header('location:'.$_SERVER['PHP_SELF']); 
-            }
-        }
+                if(array_key_exists('logoutbutton', $_POST)) {
+                    session_destroy();
+                    header('location:'.$_SERVER['PHP_SELF']); 
+                }
               
            ?>
             
