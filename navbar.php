@@ -13,17 +13,21 @@
         <div class="col-md-3 text-end">
             <?php 
                 if($_SESSION['logedin']==1) {
-            
-                    echo "<button name='logoutbutton' type='button' class='btn btn-outline-primary me-2'>Logout</button>";
-            
+                    ?>
+                        <form method="post" action="index.php?logoutbutton">
+                            <button type="submit" class="btn btn-outline-primary me-2">Logout</button>                          
+                        </form>
+                    <?php            
                 }else{
-            
-                echo "<button onclick='location.href = \"/abi23/login_page.php\";'type='button' class='btn btn-outline-primary me-2'>Login</button>";
-            
+                    ?>
+                        <form action="/abi23/login_page.php">
+                            <button type="submit" class="btn btn-outline-primary me-2">Login</button>                          
+                        </form>
+                    <?php  
                 }
-                if(array_key_exists('logoutbutton', $_POST)) {
+                if(isset($_GET['logoutbutton'])) {
                     session_destroy();
-                    header('location:'.$_SERVER['PHP_SELF']); 
+                    header('Location: /abi23/'); 
                 }
               
            ?>
