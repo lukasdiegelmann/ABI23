@@ -1,6 +1,8 @@
 <?php
-    //include "login.php";
-    //include "ticker.php";
+    session_start();
+    include "login.php";
+    include "ticker.php";
+
 ?>
 
 <html>
